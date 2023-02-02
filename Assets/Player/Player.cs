@@ -7,7 +7,7 @@ namespace Player
 {
     public class Player : NetworkBehaviour
     {
-        [SerializeField] private List<AxleInfo> _axles;
+        [SerializeField] private List<Axle> _axles;
 
         [SerializeField] private AnimationCurve _torqueCurve;
         [SerializeField] private int _maxTorque;
@@ -69,7 +69,7 @@ namespace Player
             Acceleration = playerInput.Acceleration;
         }
 
-        private void UpdateAxlePosition(AxleInfo axle)
+        private void UpdateAxlePosition(Axle axle)
         {
         }
     }

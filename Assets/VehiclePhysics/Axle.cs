@@ -4,7 +4,7 @@ using UnityEngine;
 namespace VehiclePhysics
 {
     [Serializable]
-    public class AxleInfo
+    public class Axle
     {
         [SerializeField] private SuspensionBehaviour _suspensionBehaviourLeft;
         [SerializeField] private SuspensionBehaviour _suspensionBehaviourRight;

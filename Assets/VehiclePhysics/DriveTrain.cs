@@ -5,7 +5,8 @@ namespace VehiclePhysics
 {
     public class DriveTrain : MonoBehaviour
     {
-        private List<AxleInfo> _axles;
+        [SerializeField] private List<Axle> _axles;
+        public IReadOnlyList<Axle> Axles => _axles;
 
         private void OnValidate()
         {
@@ -24,7 +25,7 @@ namespace VehiclePhysics
             var balancingLength = Physics.gravity.magnitude / totalSpringConstant;
             for (int idx = 0; idx < _axles.Count; idx++)
             {
-                AxleInfo axle = _axles[idx];
+                Axle axle = _axles[idx];
                 axle.WheelColliderLeft.SetRaycastLength(balancingLength);
                 axle.WheelColliderRight.SetRaycastLength(balancingLength);
                 _axles[idx] = axle;
