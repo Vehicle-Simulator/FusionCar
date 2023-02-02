@@ -17,15 +17,14 @@ namespace VehiclePhysics
         [SerializeField] private float _suspensionLength;
         [SerializeField] private int _damper;
         [SerializeField] private int _springConstant;
-        
+
         private float _raycastLength;
         private float _lastSuspensionLength;
-      
+
         public int SpringConstant => _springConstant;
         public Transform SuspensionTransform { get; private set; }
         public Rigidbody Rigidbody { get; private set; }
 
-      
 
         public void SetSuspensionTransform(Transform transform)
         {
