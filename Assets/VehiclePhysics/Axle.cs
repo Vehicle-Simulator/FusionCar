@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace VehiclePhysics
 {
@@ -9,11 +10,13 @@ namespace VehiclePhysics
         [SerializeField] private SuspensionBehaviour _suspensionBehaviourLeft;
         [SerializeField] private SuspensionBehaviour _suspensionBehaviourRight;
 
-        public Suspension WheelColliderLeft;
+        public Suspension suspensionLeft;
+        public Wheel WheelLeft;
         public Transform WheelTransformLeft;
 
 
-        [HideInInspector] public Suspension WheelColliderRight;
+        [HideInInspector] public Suspension SuspensionRight;
+        public Wheel WheelRight;
         public Transform WheelTransformRight;
 
         public bool SteerableWheel;
@@ -28,18 +31,23 @@ namespace VehiclePhysics
 
         public void SetSuspension(Rigidbody rigidbody)
         {
-            WheelColliderLeft = _suspensionBehaviourLeft.Suspension;
-            WheelColliderRight = _suspensionBehaviourRight.Suspension;
+            suspensionLeft = _suspensionBehaviourLeft.Suspension;
+            SuspensionRight = _suspensionBehaviourRight.Suspension;
 
-            WheelColliderLeft.SetRigidbody(rigidbody);
-            WheelColliderRight.SetRigidbody(rigidbody);
+            WheelLeft = _suspensionBehaviourLeft.Wheel;
+            WheelRight = _suspensionBehaviourRight.Wheel;
 
-            WheelColliderLeft.SetSuspensionTransform(_suspensionBehaviourLeft.transform);
-            WheelColliderRight.SetSuspensionTransform(_suspensionBehaviourRight.transform);
+            suspensionLeft.SetRigidbody(rigidbody);
+            SuspensionRight.SetRigidbody(rigidbody);
+
+            suspensionLeft.SetSuspensionTransform(_suspensionBehaviourLeft.transform);
+            SuspensionRight.SetSuspensionTransform(_suspensionBehaviourRight.transform);
         }
 
-        public void OnSuspensionDestroy()
+        public void DestroySuspensionBehaviour()
         {
+            _suspensionBehaviourLeft.Dispose();
+            _suspensionBehaviourRight.Dispose();
             _suspensionBehaviourLeft = _suspensionBehaviourRight = null;
         }
     }

@@ -51,39 +51,49 @@ MonoBehaviour:
   _axles:
   - _suspensionBehaviourLeft: {fileID: 3219784803009738995}
     _suspensionBehaviourRight: {fileID: 1039727482039998534}
-    WheelColliderLeft:
-      _wheel:
-        _inflated: 0
-        _wheelRadius: 0.3
-        _rimRadius: 0.25
-        _forwardFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-        _sidewaysFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-      _suspensionLength: 0.7
+    suspensionLeft:
+      _suspensionLength: 0.2
       _damper: 5
       _springConstant: 12
+      SuspensionTransform: {fileID: 7020237470128178063}
+    WheelLeft:
+      _inflated: 1
+      _wheelRadius: 0.25
+      _rimRadius: 0.2
+      _forwardFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
+      _sidewaysFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
     WheelTransformLeft: {fileID: 0}
-    WheelColliderRight:
-      _wheel:
-        _inflated: 0
-        _wheelRadius: 0.3
-        _rimRadius: 0.25
-        _forwardFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-        _sidewaysFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-      _suspensionLength: 0.7
+    SuspensionRight:
+      _suspensionLength: 0.2
       _damper: 5
       _springConstant: 12
+      SuspensionTransform: {fileID: 2095310015785062450}
+    WheelRight:
+      _inflated: 1
+      _wheelRadius: 0.25
+      _rimRadius: 0.2
+      _forwardFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
+      _sidewaysFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
     WheelTransformRight: {fileID: 0}
     SteerableWheel: 1
     DriveWheel: 0
@@ -91,39 +101,49 @@ MonoBehaviour:
     AxleWidth: 1.5
   - _suspensionBehaviourLeft: {fileID: 3782811533890778313}
     _suspensionBehaviourRight: {fileID: 6127299168576753892}
-    WheelColliderLeft:
-      _wheel:
-        _inflated: 0
-        _wheelRadius: 0.3
-        _rimRadius: 0.25
-        _forwardFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-        _sidewaysFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-      _suspensionLength: 0.7
+    suspensionLeft:
+      _suspensionLength: 0.2
       _damper: 5
       _springConstant: 12
+      SuspensionTransform: {fileID: 3332978379781078380}
+    WheelLeft:
+      _inflated: 1
+      _wheelRadius: 0.25
+      _rimRadius: 0.2
+      _forwardFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
+      _sidewaysFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
     WheelTransformLeft: {fileID: 0}
-    WheelColliderRight:
-      _wheel:
-        _inflated: 0
-        _wheelRadius: 0.3
-        _rimRadius: 0.25
-        _forwardFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-        _sidewaysFriction:
-          CoefficientOfFriction: 5
-          CoefficientOfFrictionMax: 5
-          FrictionAsymptote: 4
-      _suspensionLength: 0.7
+    SuspensionRight:
+      _suspensionLength: 0.2
       _damper: 5
       _springConstant: 12
+      SuspensionTransform: {fileID: 727217313548978663}
+    WheelRight:
+      _inflated: 1
+      _wheelRadius: 0.25
+      _rimRadius: 0.2
+      _forwardFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
+      _sidewaysFriction:
+        MaxStaticFriction: 0.5
+        DynamicCoefficientOfFriction: 5
+        MaxDynamicFriction: 1
+        FrictionAsymptote: 4
+        StaticFriction: 0
     WheelTransformRight: {fileID: 0}
     SteerableWheel: 0
     DriveWheel: 1
@@ -153,14 +173,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587455493635812107}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
   m_LocalPosition: {x: 0.75, y: -0.5, z: 1.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5526038408877988925}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!114 &1039727482039998534
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -174,21 +194,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _suspension:
-    _wheel:
-      _inflated: 0
-      _wheelRadius: 0.3
-      _rimRadius: 0.25
-      _forwardFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-      _sidewaysFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-    _suspensionLength: 0.7
+    _suspensionLength: 0.2
     _damper: 5
     _springConstant: 12
+    SuspensionTransform: {fileID: 0}
+  _wheel:
+    _inflated: 1
+    _wheelRadius: 0.25
+    _rimRadius: 0.2
+    _forwardFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
+    _sidewaysFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
 --- !u!1 &5579318519849714914
 GameObject:
   m_ObjectHideFlags: 0
@@ -234,21 +259,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _suspension:
-    _wheel:
-      _inflated: 0
-      _wheelRadius: 0.3
-      _rimRadius: 0.25
-      _forwardFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-      _sidewaysFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-    _suspensionLength: 0.7
+    _suspensionLength: 0.2
     _damper: 5
     _springConstant: 12
+    SuspensionTransform: {fileID: 0}
+  _wheel:
+    _inflated: 1
+    _wheelRadius: 0.25
+    _rimRadius: 0.2
+    _forwardFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
+    _sidewaysFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
 --- !u!1 &6625503315277195323
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,7 +335,7 @@ Rigidbody:
   m_GameObject: {fileID: 6625503315277195323}
   serializedVersion: 2
   m_Mass: 100
-  m_Drag: 0
+  m_Drag: 0.1
   m_AngularDrag: 0.05
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -336,14 +366,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7448399789617582401}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
   m_LocalPosition: {x: -0.75, y: -0.5, z: 1.68}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5526038408877988925}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: -30, z: 0}
 --- !u!114 &3219784803009738995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,21 +387,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _suspension:
-    _wheel:
-      _inflated: 0
-      _wheelRadius: 0.3
-      _rimRadius: 0.25
-      _forwardFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-      _sidewaysFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-    _suspensionLength: 0.7
+    _suspensionLength: 0.2
     _damper: 5
     _springConstant: 12
+    SuspensionTransform: {fileID: 0}
+  _wheel:
+    _inflated: 1
+    _wheelRadius: 0.25
+    _rimRadius: 0.2
+    _forwardFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
+    _sidewaysFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
 --- !u!1 &9205146510855564519
 GameObject:
   m_ObjectHideFlags: 0
@@ -417,18 +452,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _suspension:
-    _wheel:
-      _inflated: 0
-      _wheelRadius: 0.3
-      _rimRadius: 0.25
-      _forwardFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-      _sidewaysFriction:
-        CoefficientOfFriction: 5
-        CoefficientOfFrictionMax: 5
-        FrictionAsymptote: 4
-    _suspensionLength: 0.7
+    _suspensionLength: 0.2
     _damper: 5
     _springConstant: 12
+    SuspensionTransform: {fileID: 0}
+  _wheel:
+    _inflated: 1
+    _wheelRadius: 0.25
+    _rimRadius: 0.2
+    _forwardFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
+    _sidewaysFriction:
+      MaxStaticFriction: 0.5
+      DynamicCoefficientOfFriction: 5
+      MaxDynamicFriction: 1
+      FrictionAsymptote: 4
+      StaticFriction: 0
