@@ -10,8 +10,14 @@ namespace VehiclePhysics
         public IReadOnlyList<Axle> Axles => _axles;
 
         private Rigidbody _rigidbody;
+#if UNITY_EDITOR
 
         private void OnValidate()
+        {
+            RefreshData();
+        }
+
+        public void RefreshData()
         {
             var totalSpringConstant = 0;
             _rigidbody = GetComponentInParent<Rigidbody>();
@@ -35,13 +41,15 @@ namespace VehiclePhysics
                 _axles[idx] = axle;
             }
         }
-
+#endif
         private void Start()
         {
+#if UNITY_EDITOR
             foreach (var axle in _axles)
             {
                 axle.DestroySuspensionBehaviour();
             }
+#endif
         }
 
         private void FixedUpdate()

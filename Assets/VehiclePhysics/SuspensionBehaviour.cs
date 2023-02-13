@@ -4,6 +4,7 @@ using UnityEngine.Serialization;
 
 namespace VehiclePhysics
 {
+#if UNITY_EDITOR
     public class SuspensionBehaviour : MonoBehaviour, IDisposable
     {
         [SerializeField] private Suspension _suspension;
@@ -12,54 +13,15 @@ namespace VehiclePhysics
         public Wheel Wheel => _wheel;
         public Suspension Suspension => _suspension;
 
+        private void OnValidate()
+        {
+            GetComponentInParent<DriveTrain>().RefreshData();
+        }
+
         public void Dispose()
         {
             Destroy(GetComponent<SuspensionBehaviour>());
         }
     }
-
-    [Serializable]
-    public struct Suspension
-    {
-        [SerializeField] private float _suspensionLength;
-        [SerializeField] private int _damper;
-        [SerializeField] private int _springConstant;
-
-        private float _raycastLength;
-        private float _lastSuspensionCompression;
-        public int SpringConstant => _springConstant;
-        public Transform SuspensionTransform;
-        public Rigidbody Rigidbody { get; private set; }
-
-
-        public void SetSuspensionTransform(Transform transform)
-        {
-            SuspensionTransform = transform;
-        }
-
-        public void SetRaycastLength(float balancingLength, Wheel wheel)
-        {
-            _raycastLength = balancingLength + wheel.Radius + _suspensionLength;
-        }
-
-        public void SetRigidbody(Rigidbody rigidbody)
-        {
-            Rigidbody = rigidbody;
-        }
-
-        public float ApplySpringForce(out RaycastHit raycastHit)
-        {
-            if (!Physics.Raycast(SuspensionTransform.position, -SuspensionTransform.up, out raycastHit,
-                    _raycastLength)) return 0;
-            var springCompression = _raycastLength - raycastHit.distance;
-            var springSpeed = (_lastSuspensionCompression - springCompression) / Time.fixedDeltaTime;
-            _lastSuspensionCompression = springCompression;
-            var springForce = SpringConstant * springCompression - _damper * springSpeed;
-            Rigidbody.AddForceAtPosition(
-                springForce * SuspensionTransform.up,
-                SuspensionTransform.position, ForceMode.Acceleration);
-
-            return springForce;
-        }
-    }
+#endif
 }

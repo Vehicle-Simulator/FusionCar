@@ -1,15 +1,11 @@
 ﻿using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace VehiclePhysics
 {
     [Serializable]
     public class Axle
     {
-        [SerializeField] private SuspensionBehaviour _suspensionBehaviourLeft;
-        [SerializeField] private SuspensionBehaviour _suspensionBehaviourRight;
-
         public Suspension suspensionLeft;
         public Wheel WheelLeft;
         public Transform WheelTransformLeft;
@@ -23,6 +19,9 @@ namespace VehiclePhysics
         public bool DriveWheel;
         public int AntiRollingSpringConstant;
         public float AxleWidth;
+#if UNITY_EDITOR
+        [SerializeField] private SuspensionBehaviour _suspensionBehaviourLeft;
+        [SerializeField] private SuspensionBehaviour _suspensionBehaviourRight;
 
         public void UpdateAxleWidth(float axleWidth)
         {
@@ -50,5 +49,6 @@ namespace VehiclePhysics
             _suspensionBehaviourRight.Dispose();
             _suspensionBehaviourLeft = _suspensionBehaviourRight = null;
         }
+#endif
     }
 }
