@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace VehiclePhysics
 {
@@ -10,11 +9,9 @@ namespace VehiclePhysics
         [Serializable]
         private struct Friction
         {
-            public float MaxStaticFriction;
             public float DynamicCoefficientOfFriction; //Cf
             public float MaxDynamicFriction; //Cfmax
             public float FrictionAsymptote;
-            [HideInInspector] public float StaticFriction;
             public float AsymptotePoint => 1 / DynamicCoefficientOfFriction;
         }
 
@@ -27,27 +24,38 @@ namespace VehiclePhysics
         private Vector3 _lastSuspensionPosition;
 
         public float Radius => _inflated ? _wheelRadius : _rimRadius;
+        public bool Slipping { get; private set; }
 
 
-        public (float sideways, float forward) ApplyFriction(Transform suspensionTransform, float normalForce)
+        public void ApplyFriction(Transform suspensionTransform, Rigidbody rigidbody, float normalForce,
+            Vector3 groundPoint)
         {
+            if (normalForce <= 0)
+            {
+                Slipping = false;
+                return;
+            }
+
             var a = suspensionTransform.InverseTransformPoint(_lastSuspensionPosition);
-            (float sideways, float forward) slip = (a.x, a.z);
+            (float sideways, float forward) slip = (a.x, 0);
             _lastSuspensionPosition = suspensionTransform.position;
-            float x = CalculateFriction(_sidewaysFriction, slip.sideways);
-            float y = CalculateFriction(_forwardFriction, slip.forward);
-            return (x * normalForce, y * normalForce);
+            var frictionSideways = CalculateFriction(_sidewaysFriction, slip.sideways) * normalForce;
+            var frictionForward = CalculateFriction(_forwardFriction, slip.forward) * normalForce;
+            var right = suspensionTransform.right;
+            var forward = suspensionTransform.forward;
+            var frictionForceLeftVector =
+                frictionSideways * right +
+                frictionForward * forward;
+            rigidbody.AddForceAtPosition(frictionForceLeftVector, groundPoint,
+                ForceMode.Acceleration);
         }
 
         private float CalculateFriction(Friction friction, float slip)
         {
             float calculatedFriction = Mathf.Sign(slip);
             slip = Mathf.Abs(slip);
-            var acceleration = slip / (Time.fixedDeltaTime * Time.fixedDeltaTime);
-            acceleration += friction.StaticFriction;
-            friction.StaticFriction = acceleration;
-            friction.StaticFriction = Mathf.Min(friction.StaticFriction, friction.MaxStaticFriction);
-            if (slip > friction.AsymptotePoint)
+            Slipping = slip > friction.AsymptotePoint;
+            if (Slipping)
             {
                 calculatedFriction *= friction.FrictionAsymptote;
             }
@@ -55,8 +63,7 @@ namespace VehiclePhysics
             {
                 calculatedFriction *= friction.MaxDynamicFriction *
                                       (1 - (friction.DynamicCoefficientOfFriction * slip - 1) *
-                                          (friction.DynamicCoefficientOfFriction * slip - 1)) +
-                                      friction.StaticFriction;
+                                          (friction.DynamicCoefficientOfFriction * slip - 1));
             }
 
             return calculatedFriction;

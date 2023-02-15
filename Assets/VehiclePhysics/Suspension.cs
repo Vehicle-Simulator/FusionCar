@@ -10,12 +10,10 @@ namespace VehiclePhysics
         [SerializeField] private int _damper;
         [SerializeField] private int _springConstant;
 
-        private float _raycastLength;
+        [SerializeField] private float _raycastLength;
         private float _lastSuspensionCompression;
         public int SpringConstant => _springConstant;
         public Transform SuspensionTransform;
-        public Rigidbody Rigidbody { get; private set; }
-
 
         public void SetSuspensionTransform(Transform transform)
         {
@@ -27,12 +25,8 @@ namespace VehiclePhysics
             _raycastLength = balancingLength + wheel.Radius + _suspensionLength;
         }
 
-        public void SetRigidbody(Rigidbody rigidbody)
-        {
-            Rigidbody = rigidbody;
-        }
 
-        public float ApplySpringForce(out RaycastHit raycastHit)
+        public float ApplySpringForce(Rigidbody rigidbody, out RaycastHit raycastHit)
         {
             if (!Physics.Raycast(SuspensionTransform.position, -SuspensionTransform.up, out raycastHit,
                     _raycastLength)) return 0;
@@ -40,7 +34,7 @@ namespace VehiclePhysics
             var springSpeed = (_lastSuspensionCompression - springCompression) / Time.fixedDeltaTime;
             _lastSuspensionCompression = springCompression;
             var springForce = SpringConstant * springCompression - _damper * springSpeed;
-            Rigidbody.AddForceAtPosition(
+            rigidbody.AddForceAtPosition(
                 springForce * SuspensionTransform.up,
                 SuspensionTransform.position, ForceMode.Acceleration);
 

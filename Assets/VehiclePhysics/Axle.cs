@@ -6,19 +6,20 @@ namespace VehiclePhysics
     [Serializable]
     public class Axle
     {
-        public Suspension suspensionLeft;
-        public Wheel WheelLeft;
+        [Header("Wheels")] public Wheel WheelLeft;
         public Transform WheelTransformLeft;
+        public Suspension suspensionLeft;
 
-
-        [HideInInspector] public Suspension SuspensionRight;
         public Wheel WheelRight;
         public Transform WheelTransformRight;
+        public Suspension SuspensionRight;
 
-        public bool SteerableWheel;
+        [Header("Axle Properties")] public bool SteerableWheel;
         public bool DriveWheel;
         public int AntiRollingSpringConstant;
         public float AxleWidth;
+
+
 #if UNITY_EDITOR
         [SerializeField] private SuspensionBehaviour _suspensionBehaviourLeft;
         [SerializeField] private SuspensionBehaviour _suspensionBehaviourRight;
@@ -28,16 +29,13 @@ namespace VehiclePhysics
             AxleWidth = axleWidth;
         }
 
-        public void SetSuspension(Rigidbody rigidbody)
+        public void SetSuspension()
         {
             suspensionLeft = _suspensionBehaviourLeft.Suspension;
             SuspensionRight = _suspensionBehaviourRight.Suspension;
 
             WheelLeft = _suspensionBehaviourLeft.Wheel;
             WheelRight = _suspensionBehaviourRight.Wheel;
-
-            suspensionLeft.SetRigidbody(rigidbody);
-            SuspensionRight.SetRigidbody(rigidbody);
 
             suspensionLeft.SetSuspensionTransform(_suspensionBehaviourLeft.transform);
             SuspensionRight.SetSuspensionTransform(_suspensionBehaviourRight.transform);

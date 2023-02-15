@@ -13,14 +13,14 @@ namespace VehiclePhysics
         public Wheel Wheel => _wheel;
         public Suspension Suspension => _suspension;
 
-        private void OnValidate()
-        {
-            GetComponentInParent<DriveTrain>().RefreshData();
-        }
-
         public void Dispose()
         {
             Destroy(GetComponent<SuspensionBehaviour>());
+        }
+
+        ~SuspensionBehaviour()
+        {
+            Debug.LogError("suspension gone from memmory");
         }
     }
 #endif

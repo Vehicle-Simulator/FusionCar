@@ -7,7 +7,7 @@ namespace Player
 {
     public class Player : NetworkBehaviour
     {
-        [SerializeField] private List<Axle> _axles;
+      
 
         [SerializeField] private AnimationCurve _torqueCurve;
         [SerializeField] private int _maxTorque;
@@ -42,25 +42,13 @@ namespace Player
             {
                 var torque = Acceleration * _maxTorque;
                 var steerAngle = SteeringAngle * _maxSteerAngle;
-                foreach (var axle in _axles)
-                {
-                    if (axle.SteerableWheel)
-                    {
-                    }
-
-                    if (axle.DriveWheel)
-                    {
-                    }
-                }
+               
             }
         }
 
         public override void Render()
         {
-            foreach (var axle in _axles)
-            {
-                UpdateAxlePosition(axle);
-            }
+            
         }
 
         private void OnInputUpdated(PlayerInput playerInput)
