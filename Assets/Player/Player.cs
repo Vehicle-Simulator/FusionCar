@@ -1,30 +1,18 @@
-﻿using System.Collections.Generic;
-using Fusion;
+﻿using Fusion;
 using UnityEngine;
-using VehiclePhysics;
 
 namespace Player
 {
     public class Player : NetworkBehaviour
     {
-        [SerializeField] private List<Axle> _axles;
-
-        [SerializeField] private AnimationCurve _torqueCurve;
         [SerializeField] private int _maxTorque;
         [SerializeField] private int _brakingPower;
-        [SerializeField] private int _maxRpm;
         [SerializeField] private int _maxSteerAngle;
-        [SerializeField] private Transform _cameraTarget;
-
-
+        
         [Networked] private NetworkButtons PreviousButton { get; set; }
-        [Networked] private float Acceleration { get; set; }
-        [Networked] private float SteeringAngle { get; set; }
 
         public override void Spawned()
         {
-            if (Object.HasInputAuthority == false) return;
-            SceneContext.Instance.VirtualCamera.Follow = _cameraTarget;
         }
 
         public override void FixedUpdateNetwork()
@@ -37,39 +25,10 @@ namespace Player
                 PreviousButton = input.NetworkButtons;
                 OnInputUpdated(input);
             }
-
-            if (Runner.Simulation.IsForward)
-            {
-                var torque = Acceleration * _maxTorque;
-                var steerAngle = SteeringAngle * _maxSteerAngle;
-                foreach (var axle in _axles)
-                {
-                    if (axle.SteerableWheel)
-                    {
-                    }
-
-                    if (axle.DriveWheel)
-                    {
-                    }
-                }
-            }
         }
 
-        public override void Render()
-        {
-            foreach (var axle in _axles)
-            {
-                UpdateAxlePosition(axle);
-            }
-        }
 
         private void OnInputUpdated(PlayerInput playerInput)
-        {
-            SteeringAngle = playerInput.SteeringValue;
-            Acceleration = playerInput.Acceleration;
-        }
-
-        private void UpdateAxlePosition(Axle axle)
         {
         }
     }
