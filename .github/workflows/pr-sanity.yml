@@ -18,7 +18,6 @@ jobs:
       matrix:
         build_target:
           - Android
-          - Headless
         include:
           - build_target: Android
             runner_tag: windows-pr-sanity-android
@@ -30,7 +29,7 @@ jobs:
 
     env:
       UNITY_PATH: "C:/Editor/2021.3.12f1/Editor/Unity.exe"
-      PROJECT_PATH: FusionCar\FusionCarUnity
+      PROJECT_PATH: FusionCar/FusionCarUnity
       BUILD_MODE: "pull_request_sanity"
       BUILD_METHOD: Build.BuildManager.BuildMethod
 
