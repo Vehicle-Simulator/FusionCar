@@ -21,8 +21,6 @@ jobs:
         include:
           - build_target: Android
             runner_tag: windows-pr-sanity-android
-          - build_target: Headless
-            runner_tag: windows-pr-sanity-headless
 
     runs-on: Linux
     name: PR Sanity Build
