@@ -1,0 +1,51 @@
+name: PR Sanity 😎
+on:
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  pr_sanity:
+    strategy:
+      fail-fast: true
+      matrix:
+        build_target:
+          - Android
+          - Headless
+        include:
+          - build_target: Android
+            runner_tag: windows-pr-sanity-android
+          - build_target: Headless
+            runner_tag: windows-pr-sanity-headless
+
+    runs-on: ${{ matrix.runner_tag }}
+    name: PR Sanity Build
+
+    env:
+      UNITY_PATH: "C:/Editor/2021.3.25f1/Editor/Unity.exe"
+      PROJECT_PATH: FusionCar/FusionCarUnity
+      BUILD_MODE: "pull_request_sanity"
+      BUILD_METHOD: Build.BuildManager.BuildMethod
+
+    if: github.event.pull_request.draft == false
+    steps:     
+      - name: Checkout the repository
+        uses: actions/checkout@v3.1.0
+        with:
+          fetch-depth: 1
+          lfs: true
+          clean: false
+
+      - name: Build Unity Client For Android
+        if: matrix.build_target == 'Android'
+        shell: bash
+        env:
+          BUILD_TARGET: Android
+        run: ./.github/scripts/unity_build.sh
