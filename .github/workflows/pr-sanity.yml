@@ -25,7 +25,7 @@ jobs:
           - build_target: Headless
             runner_tag: windows-pr-sanity-headless
 
-    runs-on: buildkitsandbox
+    runs-on: Linux
     name: PR Sanity Build
 
     env:
