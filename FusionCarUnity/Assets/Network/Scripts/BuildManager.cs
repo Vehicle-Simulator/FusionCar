@@ -29,7 +29,7 @@ namespace Build
 
         public static void BuildMethod()
         {
-            Console.WriteLine("Build succeeded!");
+            Console.WriteLine("Build succeeded by default!");
             EditorApplication.Exit(0);
         }
     }
