@@ -1,0 +1,434 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &102758323135950037
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5526038408877988925}
+  - component: {fileID: 8685732389303001903}
+  m_Layer: 0
+  m_Name: WheelCollders
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5526038408877988925
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102758323135950037}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 2095310015785062450}
+  - {fileID: 7020237470128178063}
+  - {fileID: 727217313548978663}
+  - {fileID: 3332978379781078380}
+  m_Father: {fileID: 6625503315277195322}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8685732389303001903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102758323135950037}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 06256efe953947e5a48b9a1d098683a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _axles:
+  - _suspensionBehaviourLeft: {fileID: 3219784803009738995}
+    _suspensionBehaviourRight: {fileID: 1039727482039998534}
+    WheelColliderLeft:
+      _wheel:
+        _inflated: 0
+        _wheelRadius: 0.3
+        _rimRadius: 0.25
+        _forwardFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+        _sidewaysFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+      _suspensionLength: 0.7
+      _damper: 5
+      _springConstant: 12
+    WheelTransformLeft: {fileID: 0}
+    WheelColliderRight:
+      _wheel:
+        _inflated: 0
+        _wheelRadius: 0.3
+        _rimRadius: 0.25
+        _forwardFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+        _sidewaysFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+      _suspensionLength: 0.7
+      _damper: 5
+      _springConstant: 12
+    WheelTransformRight: {fileID: 0}
+    SteerableWheel: 1
+    DriveWheel: 0
+    AntiRollingSpringConstant: 1
+    AxleWidth: 1.5
+  - _suspensionBehaviourLeft: {fileID: 3782811533890778313}
+    _suspensionBehaviourRight: {fileID: 6127299168576753892}
+    WheelColliderLeft:
+      _wheel:
+        _inflated: 0
+        _wheelRadius: 0.3
+        _rimRadius: 0.25
+        _forwardFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+        _sidewaysFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+      _suspensionLength: 0.7
+      _damper: 5
+      _springConstant: 12
+    WheelTransformLeft: {fileID: 0}
+    WheelColliderRight:
+      _wheel:
+        _inflated: 0
+        _wheelRadius: 0.3
+        _rimRadius: 0.25
+        _forwardFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+        _sidewaysFriction:
+          CoefficientOfFriction: 5
+          CoefficientOfFrictionMax: 5
+          FrictionAsymptote: 4
+      _suspensionLength: 0.7
+      _damper: 5
+      _springConstant: 12
+    WheelTransformRight: {fileID: 0}
+    SteerableWheel: 0
+    DriveWheel: 1
+    AntiRollingSpringConstant: 1
+    AxleWidth: 1.5
+--- !u!1 &1587455493635812107
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2095310015785062450}
+  - component: {fileID: 1039727482039998534}
+  m_Layer: 0
+  m_Name: WheelCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2095310015785062450
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587455493635812107}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.75, y: -0.5, z: 1.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5526038408877988925}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1039727482039998534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587455493635812107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f8093bbfd4435af7036710b0a0d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _suspension:
+    _wheel:
+      _inflated: 0
+      _wheelRadius: 0.3
+      _rimRadius: 0.25
+      _forwardFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+      _sidewaysFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+    _suspensionLength: 0.7
+    _damper: 5
+    _springConstant: 12
+--- !u!1 &5579318519849714914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3332978379781078380}
+  - component: {fileID: 3782811533890778313}
+  m_Layer: 0
+  m_Name: WheelCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3332978379781078380
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579318519849714914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.75, y: -0.5, z: -1.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5526038408877988925}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3782811533890778313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5579318519849714914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f8093bbfd4435af7036710b0a0d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _suspension:
+    _wheel:
+      _inflated: 0
+      _wheelRadius: 0.3
+      _rimRadius: 0.25
+      _forwardFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+      _sidewaysFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+    _suspensionLength: 0.7
+    _damper: 5
+    _springConstant: 12
+--- !u!1 &6625503315277195323
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6625503315277195322}
+  - component: {fileID: 556038061326233499}
+  - component: {fileID: 43000754843648848}
+  m_Layer: 0
+  m_Name: VehiclePhysics
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6625503315277195322
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625503315277195323}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5526038408877988925}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &556038061326233499
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625503315277195323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.58, y: 1, z: 4.97}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!54 &43000754843648848
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6625503315277195323}
+  serializedVersion: 2
+  m_Mass: 100
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!1 &7448399789617582401
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7020237470128178063}
+  - component: {fileID: 3219784803009738995}
+  m_Layer: 0
+  m_Name: WheelCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7020237470128178063
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448399789617582401}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.75, y: -0.5, z: 1.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5526038408877988925}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3219784803009738995
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7448399789617582401}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f8093bbfd4435af7036710b0a0d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _suspension:
+    _wheel:
+      _inflated: 0
+      _wheelRadius: 0.3
+      _rimRadius: 0.25
+      _forwardFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+      _sidewaysFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+    _suspensionLength: 0.7
+    _damper: 5
+    _springConstant: 12
+--- !u!1 &9205146510855564519
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 727217313548978663}
+  - component: {fileID: 6127299168576753892}
+  m_Layer: 0
+  m_Name: WheelCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &727217313548978663
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205146510855564519}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.75, y: -0.5, z: -1.68}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5526038408877988925}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6127299168576753892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9205146510855564519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec0f8093bbfd4435af7036710b0a0d59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _suspension:
+    _wheel:
+      _inflated: 0
+      _wheelRadius: 0.3
+      _rimRadius: 0.25
+      _forwardFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+      _sidewaysFriction:
+        CoefficientOfFriction: 5
+        CoefficientOfFrictionMax: 5
+        FrictionAsymptote: 4
+    _suspensionLength: 0.7
+    _damper: 5
+    _springConstant: 12
