@@ -5,5 +5,8 @@ RUN curl -o actions-runner-linux-x64-2.304.0.tar.gz -L https://github.com/action
 RUN echo "292e8770bdeafca135c2c06cd5426f9dda49a775568f45fcc25cc2b576afc12f  actions-runner-linux-x64-2.304.0.tar.gz" | shasum -a 256 -c
 RUN export RUNNER_ALLOW_RUNASROOT="1"
 RUN tar xzf ./actions-runner-linux-x64-2.304.0.tar.gz
-RUN  RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/Vehicle-Simulator/FusionCar --token AQA333KWKQGX6GMRO5XFEQDEQL4AG
+RUN sudo apt-get update
+RUN sudo apt-get install git -y
+RUN  git --version
+RUN  RUNNER_ALLOW_RUNASROOT="1" ./config.sh --url https://github.com/Vehicle-Simulator/FusionCar --token AQA333K75KHKSJ7FNGR7LGTEQMFSO --name "SanityMachine"
 CMD  RUNNER_ALLOW_RUNASROOT="1" ./run.sh

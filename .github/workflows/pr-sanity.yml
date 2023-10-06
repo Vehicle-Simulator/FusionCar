@@ -18,18 +18,15 @@ jobs:
       matrix:
         build_target:
           - Android
-          - Headless
         include:
           - build_target: Android
             runner_tag: windows-pr-sanity-android
-          - build_target: Headless
-            runner_tag: windows-pr-sanity-headless
 
-    runs-on: ${{ matrix.runner_tag }}
+    runs-on: Linux
     name: PR Sanity Build
 
     env:
-      UNITY_PATH: "C:/Editor/2021.3.25f1/Editor/Unity.exe"
+      UNITY_PATH: "C:/Editor/2021.3.12f1/Editor/Unity.exe"
       PROJECT_PATH: FusionCar/FusionCarUnity
       BUILD_MODE: "pull_request_sanity"
       BUILD_METHOD: Build.BuildManager.BuildMethod
